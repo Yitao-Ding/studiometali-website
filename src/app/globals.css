@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* =========================================================
+   スタジオメタリ — design tokens
+   水色は YouTube チャンネルのアバター背景の実測平均 (111,181,215)。
+   ========================================================= */
+
+@theme inline {
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
+  --color-sky-ink: var(--sky-ink);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+
+  --font-sans: var(--ff-sans);
+  --font-hand: var(--ff-hand);
+  --font-roman: var(--ff-roman);
+}
+
+:root {
+  --sky: #6fb5d7;
+  --sky-soft: #e6f2f9;
+  /* 白地に置く水色の文字。#6fb5d7 のままだと 2.2:1 で読めないので濃くしてある (4.7:1) */
+  --sky-ink: #1f6f9c;
+  --ink: #12314a; /* 水色 (#6fb5d7) の上で 6.0:1、白地で 12.9:1 */
+  --ink-muted: #4a5e70;
+  --paper: #ffffff;
+  --paper-2: #f6f9fb;
+
+  --container: min(1120px, 92vw);
+  --section-pad-y: clamp(64px, 9vw, 128px);
+
+  /* next/font の変数は <html> に付与 (body に付けると :root から解決できない) */
+  --ff-sans: var(--font-noto-jp), "Hiragino Sans", system-ui, sans-serif;
+  --ff-hand: var(--font-klee), "Hiragino Maru Gothic ProN", sans-serif;
+  --ff-roman: var(--font-cormorant), Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  font-family: var(--ff-sans);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.9;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "palt" 1;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* ヘッダーの下に置くセクションは見出し位置をヘッダー分ずらす */
+section[id] {
+  scroll-margin-top: 64px;
+}
+
+/* Instagram 埋め込み */
+.instagram-media {
+  width: 100% !important;
+  max-width: 100% !important;
+}
