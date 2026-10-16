@@ -72,16 +72,28 @@ export function Projects() {
             <p className="copy">{HIME.body}</p>
             <Facts facts={HIME.facts} />
             <Links links={HIME.links} />
-            <div className="himer-video">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${HIME.videoId}`}
-                title="Hi,Me:)の動画"
+            {/* 埋め込みプレーヤー (iframe) だと本番で再生できなかった (2026-10-16 YD「埋め込みが壊れている」)。
+                ID は YD 確認済みの正しい動画で、コードとヘッダにも原因が無いので、YouTube 側で
+                外部サイトでの再生が止まっている (埋め込み禁止か、使用曲の権利者による制限)。
+                どちらでも再生できるよう、サムネイルから YouTube に飛ばす。hqdefault は全動画にある */}
+            <a
+              className="himer-video"
+              href={`https://youtu.be/${HIME.videoId}`}
+              target="_blank"
+              rel="noopener"
+              aria-label="Hi,Me:)の動画をYouTubeで見る"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- YouTube のサムネイル。画像最適化は使っていない */}
+              <img
+                src={`https://i.ytimg.com/vi/${HIME.videoId}/hqdefault.jpg`}
+                alt=""
+                width={480}
+                height={360}
                 loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
+                decoding="async"
               />
-            </div>
+              <span className="play" aria-hidden="true" />
+            </a>
             <p className="video-note">
               <a href={`https://youtu.be/${HIME.videoId}`} target="_blank" rel="noopener">
                 YouTubeで動画を見る ↗
