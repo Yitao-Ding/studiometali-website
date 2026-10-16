@@ -11,17 +11,17 @@
   },
   "dependencies": {
     "budoux": "^0.9.3",
-    "next": "16.3.4",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.4",
-    "sharp": "^0.35.4",
+    "eslint-config-next": "16.4.0",
+    "sharp": "^0.35.5",
     "typescript": "^5",
     "wrangler": "^4.149.0"
   }
