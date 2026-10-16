@@ -20,7 +20,8 @@
 
 `/_next/static/*` はファイル名にハッシュが入るので 1 年キャッシュ (immutable)。
 
-Report-Only の許可先: 自サイト / YouTube の埋め込み (www.youtube-nocookie.com) / 問い合わせフォームの送信先 (api.web3forms.com)。
+Report-Only の許可先: 自サイト / Hi,Me:) の動画のサムネイル (i.ytimg.com) / 問い合わせフォームの送信先 (api.web3forms.com)。
+Hi,Me:) の動画は埋め込みプレーヤーをやめ、サムネイルから YouTube に飛ばしている (2026-10-16、埋め込みでは本番で再生できなかったため)。iframe は使っていないので frame-src は無い。
 script-src の 'unsafe-inline' は外せない。Next.js の静的ページは RSC payload を inline `<script>` で埋め込み、nonce 方式は動的レンダリングでないと使えない。外すとメニューとフォームが動かなくなる。
 
 問い合わせフォームのスパム対策は Web3Forms の honeypot (`botcheck`) だけ。スパムが増えたら Web3Forms の hCaptcha を検討する (CSP の script-src / frame-src に hCaptcha を足す必要がある)。
@@ -29,14 +30,13 @@ Web3Forms の access key は公開してよい値 (届け先のメールは Web3
 ### CSP の見方
 
 Report-Only は「許可リストに無い通信があったら Console に書く」だけで、表示は一切変わらない。
-確認は Chrome で https://studiometali.com を開き、右クリック → 検証 → Console。Hi,Me:) の動画を再生し、フォームを1回送ってから、`[Report Only] Refused to` で始まる行が無ければ問題なし。
-YouTube の iframe 内部が出す警告 (発生元が youtube-nocookie.com のもの) と `Unrecognized feature: 'web-share'` は対象外なので無視してよい。
+確認は Chrome で https://studiometali.com を開き、右クリック → 検証 → Console。Hi,Me:) の動画の欄までスクロールし、フォームを1回送ってから、`[Report Only] Refused to` で始まる行が無ければ問題なし。
 
 違反が出た時は `public/_headers` の Content-Security-Policy-Report-Only の行に足す:
 
-- `Refused to frame 'https://www.youtube.com/…'` → 埋め込み方式を変えた時。frame-src に追加
+- `Refused to frame 'https://…'` → iframe で外部のページを埋め込んだ時。frame-src を足す
 - `Refused to connect to 'https://…web3forms…'` → Web3Forms の送信先が変わった時。connect-src と form-action に追加
-- `Refused to load the image 'https://…'` → 外部の画像を直接貼った時。`scripts/build-assets.mjs` で取り込んで `public/assets` から出す
+- `Refused to load the image 'https://…'` → 外部の画像を直接貼った時。`scripts/build-assets.mjs` で取り込んで `public/assets` から出す (YouTube のサムネイルだけは動画側で差し替わるので i.ytimg.com から直接出している)
 
 Report-Only を本当のブロック (enforce) に切り替えるのは、`Content-Security-Policy-Report-Only` を `Content-Security-Policy` に書き換えて、上の行の enforce 分と1本にまとめるだけ。ただし切り替えると、YouTube や Web3Forms が仕様を変えた時に無言で壊れる。「サイトを更新するたびに Console を見る」と決められる場合だけ切り替える。
 
