@@ -196,6 +196,8 @@ textarea{min-height:120px;resize:vertical}
 @media (max-width:760px){.contact .wrap{grid-template-columns:1fr}form{padding:22px}}
 footer{background:var(--black);color:#9AA3BA;padding-block:28px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em}
+/* DM Mono には和文が無いので、屋号の日本語だけ本文の書体に */
+footer .ja{font-family:var(--ja);font-weight:700;letter-spacing:.12em;margin-left:.8em}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* 404 / エラー画面 */
