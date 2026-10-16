@@ -34,19 +34,26 @@ export const metadata: Metadata = {
   title: { default: SITE.title, template: `%s | ${SITE.nameRoman}` },
   description: SITE.description,
   keywords: ["スタジオメタリ", "Studio Metali", "Metalina", "めたりな", "鈴木理那", "振付", "振付師", "ダンサー", "ダンスレッスン", "ハタチたち", "Hi,Me:)"],
+  // 検索結果で写真を大きく出してよい、説明文の長さも制限しない (Google 向け)
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
   openGraph: {
     title: SITE.title,
     description: SITE.description,
     type: "website",
-    siteName: SITE.nameRoman,
+    siteName: SITE.name,
     locale: "ja_JP",
     url: "/",
-    images: [{ url: "/assets/ogp.jpg", width: 1200, height: 630, alt: SITE.nameRoman }],
+    images: [{ url: "/assets/ogp.jpg", width: 1200, height: 630, alt: `${SITE.name} (${SITE.nameRoman})` }],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
+    creator: SITE.xHandle,
     images: ["/assets/ogp.jpg"],
   },
   icons: {
