@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/sections/header";
+import { Nav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { Service } from "@/components/sections/service";
 import { Projects } from "@/components/sections/projects";
-import { Works } from "@/components/sections/works";
-import { Profile } from "@/components/sections/profile";
-import { Services } from "@/components/sections/services";
-import { News } from "@/components/sections/news";
-import { Instagram } from "@/components/sections/instagram";
+import { Gallery } from "@/components/sections/gallery";
+import { Career } from "@/components/sections/career";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 import { JsonLd } from "@/components/json-ld";
@@ -20,16 +18,14 @@ export default function Home() {
   return (
     <>
       <JsonLd />
-      <Header />
+      <Nav />
       <main>
         <Hero />
         <About />
+        <Service />
         <Projects />
-        <Works />
-        <Profile />
-        <Services />
-        <News />
-        <Instagram />
+        <Gallery />
+        <Career />
         <Contact />
       </main>
       <Footer />

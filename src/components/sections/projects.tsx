@@ -1,53 +1,111 @@
-import Image from "next/image";
-import { PROJECTS } from "@/content/site";
-import { SectionLabel } from "@/components/ui/section-label";
+import { CHARITY, HATACHI, HIME, PHOTOS, SITE } from "@/content/site";
+import { Photo } from "@/components/ui/photo";
 
+function Links({ links }: { links: readonly { label: string; href: string }[] }) {
+  return (
+    <ul className="links">
+      {links.map((l) => (
+        <li key={l.href}>
+          <a href={l.href} target="_blank" rel="noopener">
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Facts({ facts }: { facts: readonly string[] }) {
+  return (
+    <ul className="facts">
+      {facts.map((f) => (
+        <li key={f}>{f}</li>
+      ))}
+    </ul>
+  );
+}
+
+// 主な活動。ハタチたち (写真背景) → Hi,Me:) (黒) → ダンスでチャリティ (青) の3章
 export function Projects() {
   return (
-    <section id="projects" className="bg-sky-soft">
-      <div className="mx-auto w-[var(--container)] py-[var(--section-pad-y)]">
-        <SectionLabel>PROJECTS</SectionLabel>
-        <h2 className="font-hand mt-4 text-[clamp(28px,4.2vw,44px)] leading-[1.4] font-semibold tracking-[0.06em]">
-          動いているプロジェクト
-        </h2>
+    <>
+      <div id="projects" />
+      <section className="chap proj-photo">
+        <Photo className="bg" photo={PHOTOS.hatachi} sizes="100vw" />
+        <div className="wrap">
+          <div className="right">
+            <span className="tag">{HATACHI.tag}</span>
+            <h2 className="big up">
+              {HATACHI.heading[0]}
+              <br />
+              {HATACHI.heading[1]}
+            </h2>
+            <p className="h-ja">{HATACHI.ja}</p>
+            <p className="copy">{HATACHI.body}</p>
+            <Facts facts={HATACHI.facts} />
+            <a className="btn big-cta" href={SITE.hatachitachi} target="_blank" rel="noopener">
+              <span className="lbl">OFFICIAL SITE</span>
+              <b className="main">
+                <span className="nb">ハタチたち</span> <span className="nb">公式サイトへ</span>
+              </b>
+              <span className="foot">
+                <small>hatachitachi.com</small>
+                <i className="arr">→</i>
+              </span>
+            </a>
+            <Links links={HATACHI.links} />
+          </div>
+        </div>
+      </section>
 
-        <ul className="mt-12 grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-14">
-          {PROJECTS.map((p) => (
-            <li key={p.id} className="flex flex-col">
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-                aria-label={`${p.title} の${p.linkLabel}を開く`}
-              >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[20px]">
-                  <Image
-                    src={p.image}
-                    alt={p.imageAlt}
-                    fill
-                    sizes="(min-width: 768px) 45vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
+      <section className="chap himer">
+        <div className="wrap">
+          <div>
+            <span className="tag">{HIME.tag}</span>
+            <div className="himer-head">
+              <div>
+                <h2 className="big">{HIME.heading}</h2>
+                <p className="h-ja">{HIME.ja}</p>
+              </div>
+              <Photo className="himer-icon" photo={PHOTOS.himerLogo} sizes="160px" />
+            </div>
+            <p className="copy">{HIME.body}</p>
+            <Facts facts={HIME.facts} />
+            <Links links={HIME.links} />
+            <div className="himer-video">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${HIME.videoId}`}
+                title="Hi,Me:)の動画"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+            <p className="video-note">
+              <a href={`https://youtu.be/${HIME.videoId}`} target="_blank" rel="noopener">
+                YouTubeで動画を見る ↗
               </a>
-              <h3 className="font-hand mt-6 text-[26px] leading-[1.3] font-semibold tracking-[0.04em]">
-                {p.title}
-              </h3>
-              <p className="text-sky-ink mt-1 text-[14px] tracking-[0.06em]">{p.sub}</p>
-              <p className="mt-4 text-[15px] leading-[2] tracking-[0.03em]">{p.body}</p>
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-ink mt-4 inline-block self-start border-b-2 border-current py-1 text-[13px] font-bold tracking-[0.2em] hover:text-sky-ink"
-              >
-                {p.linkLabel} →
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="chap charity">
+        <div className="wrap">
+          <div className="right">
+            <span className="tag">{CHARITY.tag}</span>
+            <h2 className="big">
+              <span className="nb">{CHARITY.heading[0]}</span>
+              <br />
+              {CHARITY.heading[1]}
+            </h2>
+            <p className="h-ja">{CHARITY.ja}</p>
+            <p className="copy">{CHARITY.body}</p>
+          </div>
+          <Photo photo={PHOTOS.charity} sizes="(max-width: 760px) 100vw, 680px" />
+        </div>
+      </section>
+    </>
   );
 }

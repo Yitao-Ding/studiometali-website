@@ -20,23 +20,23 @@ export default function GlobalError({
           justifyContent: "center",
           gap: 20,
           fontFamily: "system-ui, sans-serif",
-          color: "#1f2430",
-          background: "#ffffff",
+          color: "#0B1530",
+          background: "#F4F6FA",
           textAlign: "center",
           padding: 24,
         }}
       >
-        <p style={{ color: "#ff5757", fontSize: 24, fontWeight: 700, margin: 0 }}>
+        <p style={{ color: "#E2582C", fontSize: 24, fontWeight: 700, margin: 0 }}>
           ページを表示できませんでした
         </p>
         <button
           type="button"
           onClick={reset}
           style={{
-            border: "2px solid #1f469d",
-            color: "#1f469d",
+            border: "2px solid #0B1530",
+            color: "#0B1530",
             background: "transparent",
-            borderRadius: 999,
+            borderRadius: 0,
             padding: "12px 32px",
             fontSize: 14,
             cursor: "pointer",

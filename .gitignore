@@ -14,8 +14,11 @@ next-env.d.ts
 .env*
 !.env.example
 
-# vercel
+# vercel (旧ホスティング)
 .vercel
+
+# cloudflare wrangler のローカル作業領域
+.wrangler/
 
 # typescript
 *.tsbuildinfo

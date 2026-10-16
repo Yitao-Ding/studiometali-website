@@ -1,193 +1,204 @@
 // サイトの全文言と URL。更新はこのファイルを直して push する (ハタチたち公式と同じ運用)。
 // 出典が無い数字・日付は入れない。推測で埋めた値はここに置かない。
+// 2026-10-16 に、YD が完成させたデザイン (claude.ai の Artifact「Studio Metali」) の文言へ全面的に差し替えた。
 
 export const SITE = {
   name: "スタジオメタリ",
-  nameRoman: "STUDIO METALI",
-  tagline: "心躍る物語をダンスと映像で。",
-  producedBy: "Produced by Metalina",
+  nameRoman: "Studio Metali",
+  title: "Studio Metali | ダンサー・振付師 Metalina 公式サイト",
   description:
-    "スタジオメタリは、ダンサー Metalina が主宰する屋号。二十歳100人のダンス映像「ハタチたち」、2人組ダンスチーム Hi,Me:)、ダンスでチャリティなど、ダンスと映像で物語をつくる活動をまとめています。",
+    "神奈川を拠点に活動するダンサー・振付師・プロデューサー Metalina (鈴木理那) の公式サイト。振付制作、レッスン指導・WS、ダンサー出演、映像ディレクション・イベント企画のご依頼を受け付けています。",
+  domain: "studiometali.com",
   instagram: "https://www.instagram.com/metalina_831/",
-  instagramHandle: "@metalina_831",
-  youtube: "https://www.youtube.com/@Studio_Metali",
-  tiktok: "https://www.tiktok.com/@metalina_831",
   x: "https://x.com/metalina_831",
-  linktree: "https://linktr.ee/metalina831",
+  tiktok: "https://www.tiktok.com/@metalina_831",
+  youtube: "https://youtube.com/@studio_metali",
+  hatachitachi: "https://hatachitachi.com/",
 } as const;
-
-export const NAV = [
-  { href: "#about", label: "ABOUT" },
-  { href: "#projects", label: "PROJECTS" },
-  { href: "#works", label: "WORKS" },
-  { href: "#profile", label: "PROFILE" },
-  { href: "#service", label: "SERVICE" },
-  { href: "#news", label: "NEWS" },
-  { href: "#contact", label: "CONTACT" },
-] as const;
-
-export const ABOUT = {
-  heading: "スタジオメタリとは。",
-  body: [
-    "ダンサー・振付師の Metalina が、ダンスと映像でつくる物語の屋号です。",
-    "その年の二十歳100人だけで踊るダンス映像「ハタチたち」を2023年から毎年制作し、川崎市・相模原市・福島市の成人式で上映してきました。",
-    "友達2人の「本気のごっこ遊びダンス」Hi,Me:)、ワークショップの利益を全額寄付する「ダンスでチャリティ」、ハタチたちの卒業生が集まるイベント「平成たち祭」。",
-    "踊る人も、観る人も、撮る人も、全員の心が躍る瞬間をつくることを大切にしています。",
-  ],
-} as const;
-
-export type Project = {
-  id: string;
-  title: string;
-  sub: string;
-  body: string;
-  image: string;
-  imageAlt: string;
-  href: string;
-  linkLabel: string;
-};
-
-export const PROJECTS: Project[] = [
-  {
-    id: "hatachitachi",
-    title: "ハタチたち",
-    sub: "二十歳100人でつくるダンス映像プロジェクト",
-    body: "その年に二十歳を迎える100人だけでダンス映像を1本つくる。ダンサーも運営も撮影も編集も全員が二十歳。2023年の初代から毎年続き、第2作からは川崎市の成人式で上映。第5作「ハタチたち5」を制作中。",
-    image: "/assets/project-hatachitachi.webp",
-    imageAlt: "円陣を組むハタチたちのメンバー",
-    href: "https://hatachitachi.com",
-    linkLabel: "公式サイト",
-  },
-  {
-    id: "hime",
-    title: "Hi,Me:)",
-    sub: "友達2人の、本気のごっこ遊びダンス",
-    body: "菅野日菜との2人組ダンスチーム。2025年2月結成。「友達がゾンビになった時の対処法」「鏡に恋して」など物語仕立ての作品を Instagram と YouTube で発信し、ダンスイベントへの出演やワークショップも行っています。",
-    image: "/assets/project-hime.webp",
-    imageAlt: "Hi,Me:) のアーティスト写真",
-    href: "https://www.instagram.com/hihi.meme.jp/",
-    linkLabel: "Instagram",
-  },
-  {
-    id: "dance-de-charity",
-    title: "ダンスでチャリティ",
-    sub: "ダンスの可能性で支え合える世界",
-    body: "ダンスワークショップの売上からスタジオ代などの経費を引いた全額を寄付する企画。寄付先の団体を訪ねた映像も制作しています。これまでの寄付先はセブ島の孤児院を支援する Christ For Asia International、NPO法人一匹でも犬・ねこを救う会。",
-    image: "/assets/silhouette.webp",
-    imageAlt: "スタジオで踊る Metalina のシルエット",
-    href: "https://www.instagram.com/dance_de_charity/",
-    linkLabel: "Instagram",
-  },
-  {
-    id: "heiseitachi",
-    title: "平成たち祭",
-    sub: "ハタチたちの卒業生が集まるダンスイベント",
-    body: "歴代のハタチたち参加者が同窓会のように集まるダンスイベント。vol.2 は2026年9月14日、新宿 Motion にてショーケース形式で開催。",
-    image: "/assets/project-heiseitachi.webp",
-    imageAlt: "平成たち祭の集合写真",
-    href: "https://www.instagram.com/hatachi_tachi/",
-    linkLabel: "Instagram",
-  },
-];
-
-export type Work = {
-  videoId: string;
-  title: string;
-  year: string;
-  note: string;
-};
-
-// YouTube スタジオメタリ (@Studio_Metali) の公開動画。ID は公式チャンネルのフィードから取得
-export const FEATURED_WORK: Work = {
-  videoId: "RigEjrlltEM",
-  title: "ハタチたち4 - 「ピーターパン」優里",
-  year: "2026",
-  note: "撮影: 相模女子大学。川崎市・相模原市・福島市の成人式で上映",
-};
-
-export const WORKS: Work[] = [
-  { videoId: "DQTgxCvuGRY", title: "ハタチたち3 -「かくれんぼ」AliA", year: "2025", note: "川崎市・相模原市の成人式で上映" },
-  { videoId: "SLzwOObZcm8", title: "ハタチたち2 - 「生きるをする」マカロニえんぴつ", year: "2024", note: "川崎市の成人式で上映" },
-  { videoId: "pkBvdMpLzx8", title: "ハタチたち［二十歳 - LUCCI］", year: "2023", note: "初代。撮影: 自由ヶ丘学園高等学校" },
-  { videoId: "Tkoxy3rSYSM", title: "【ハタチたち2】メイキング映像", year: "2024", note: "" },
-  { videoId: "DHRB__8jMTo", title: "【ハタチたち2】Special Dance ver.", year: "2024", note: "" },
-  { videoId: "tg2G2mIlEmc", title: "ハタチたち Behind The Scene", year: "2023", note: "" },
-];
 
 export const PROFILE = {
   name: "Metalina",
-  nameKana: "めたりな",
-  role: "Dancer / Choreographer / Event Organizer",
-  intro: [
-    "2002年生まれ、川崎市出身。10歳からダンスを始め、ジュニアクルー CJDA を経て、2021年の第72回NHK紅白歌合戦に YOASOBI「群青」のダンサーとして出演。",
-    "東洋大学在学中の2023年、二十歳100人でダンス映像をつくる「ハタチたち」を発案・主催。以来プロデューサーとして毎年制作を続け、神奈川新聞に3度取り上げられました。",
-    "現在はスタジオメタリを屋号に、ダンサー・振付・イベントの企画運営・ダンスレッスン (Hiphop / R&B) を行っています。",
-  ],
-  timeline: [
-    { year: "2012", text: "10歳でダンスを始める" },
-    { year: "2021", text: "第72回NHK紅白歌合戦 YOASOBI「群青」ダンサーとして出演" },
-    { year: "2023", text: "「ハタチたち」発案・主催。第1作を公開 (5月)" },
-    { year: "2024", text: "「ハタチたち2」川崎市の成人式で上映。神奈川新聞に掲載" },
-    { year: "2024", text: "味の素 presents MissCollegeDancer 2024 FINAL 出場" },
-    { year: "2025", text: "「ハタチたち3」川崎市・相模原市で上映。Hi,Me:) 結成 (2月)" },
-    { year: "2026", text: "「ハタチたち4」川崎市・相模原市・福島市で上映。「ハタチたち5」始動" },
+  realName: "鈴木 理那",
+  roles: "Dancer / Choreographer / Producer",
+  lead: ["ダンスで、", "人と人をつなぐ。"],
+  body: "神奈川県を拠点に、ダンサー・振付師・イベントプロデューサーとして活動しています。これまでにNHK紅白歌合戦でのダンサー出演やアイドルグループの振付を担当してきました。二十歳100人でダンス映像をつくる「ハタチたち」のプロデュースや、チャリティイベントの主催もしています。",
+} as const;
+
+export const NAV = [
+  { href: "#about", en: "PROFILE", ja: "プロフィール" },
+  { href: "#service", en: "SERVICE", ja: "依頼メニュー" },
+  { href: "#projects", en: "PROJECTS", ja: "主な活動" },
+  { href: "#gallery", en: "GALLERY", ja: "写真" },
+  { href: "#cv", en: "CAREER", ja: "経歴" },
+  { href: SITE.hatachitachi, en: "HATACHI TACHI", ja: "ハタチたち公式 ↗", external: true },
+  { href: "#contact", en: "CONTACT", ja: "お問い合わせ" },
+] as const;
+
+// 写真。幅の一覧は scripts/build-assets.mjs の書き出し幅と揃える (/assets/<name>-<幅>.webp)
+export type Photo = {
+  name: string;
+  widths: readonly number[];
+  width: number;
+  height: number;
+  alt: string;
+};
+
+export const PHOTOS = {
+  hero: { name: "hood-tilt", widths: [800, 1067], width: 1067, height: 1600, alt: "青い布のフードをかぶって首をかしげるMetalinaのポートレート" },
+  heroFg: { name: "hood-tilt-fg", widths: [800, 1067], width: 1067, height: 608, alt: "" },
+  about: { name: "stool", widths: [800, 1200], width: 1200, height: 1600, alt: "キャップをかぶってスツールに座るMetalina" },
+  hatachi: { name: "hatachi-group", widths: [800, 1200], width: 1200, height: 1600, alt: "ハタチたちの参加者の集合写真" },
+  himerLogo: { name: "himer-logo", widths: [400], width: 400, height: 400, alt: "Hi,Me:)のメインビジュアル" },
+  charity: { name: "charity", widths: [800, 1600], width: 1600, height: 1200, alt: "フィリピンでのダンスワークショップに参加した子どもたちとの集合写真" },
+} as const satisfies Record<string, Photo>;
+
+export const SERVICE = {
+  heading: ["Work", "With Me"],
+  lead: ["振付・レッスン指導、", "承ります。"],
+  items: [
+    {
+      en: "CHOREOGRAPHY",
+      title: "振付制作",
+      body: "アイドルグループの楽曲やダンスナンバー、イベントのショーケースなどの振付をつくります。",
+      tags: ["アイドル", "ナンバー", "イベント"],
+    },
+    {
+      en: "LESSON",
+      title: "レッスン指導・WS",
+      body: "キッズから大人、アイドルグループまで、HIPHOPを中心に教えています。少人数グループへの出張レッスンもご相談ください。",
+      tags: ["キッズ", "大人", "アイドル", "出張"],
+    },
+    {
+      en: "PERFORMANCE",
+      title: "ダンサー出演",
+      body: "CM、MV、ライブなどに出演します。NHK紅白歌合戦ではYOASOBI「群青」のダンサーとして出演しました。",
+      tags: ["CM", "MV", "ライブ", "ダンスイベント"],
+    },
+    {
+      en: "DIRECTION",
+      title: "映像ディレクション・イベント企画",
+      body: "ダンス映像のディレクションのほか、ディレクションアシスタントや撮影サポートも承ります。ダンスイベントの企画・運営もしています。",
+      tags: ["映像ディレクション", "アシスタント・サポート", "イベント企画・運営"],
+    },
   ],
 } as const;
 
-export type Service = { title: string; body: string };
+export const HATACHI = {
+  tag: "Project — Produce",
+  heading: ["Hatachi", "Tachi"],
+  ja: "ハタチたち",
+  body: "二十歳の100人が、ゼロから一本のダンス映像をつくるプロジェクトです。2022年から毎年開催していて、完成した映像は川崎市・相模原市・福島市の成人式で上映されています。",
+  facts: ["2022〜毎年開催", "川崎市・相模原市・福島市で上映", "平成たち祭"],
+  links: [
+    { label: "映像を見る ↗", href: "https://youtu.be/pkBvdMpLzx8" },
+    { label: "Instagram ↗", href: "https://www.instagram.com/hatachi_tachi/" },
+  ],
+} as const;
 
-export const SERVICES: Service[] = [
-  {
-    title: "振付・出演",
-    body: "ミュージックビデオ、イベント、舞台への振付と出演。Hi,Me:) としての出演もご相談ください。",
-  },
-  {
-    title: "ワークショップ・レッスン",
-    body: "Hiphop / R&B のレッスン、学校や自治体、団体向けのダンスワークショップ。子どもから大人まで、初心者向けの内容も組み立てます。",
-  },
-  {
-    title: "イベントの企画・プロデュース",
-    body: "ハタチたち・平成たち祭・ダンスでチャリティで培った、100人規模の企画の立ち上げから当日運営まで。自治体や学校との連携もお任せください。",
-  },
-  {
-    title: "ダンス映像の制作",
-    body: "企画・振付・撮影・編集までを一貫して。撮影は映像作家 Yitao Film と共同で行います。",
-  },
-];
+export const HIME = {
+  tag: "Project — Dance Team",
+  heading: "Hi,Me:)",
+  ja: "ハイミー",
+  body: "2025年に結成した2人組のダンスチームです。国内のイベントに出演しているほか、海外でワークショップも開いています。",
+  facts: ["2025〜", "2人組ダンスチーム"],
+  links: [
+    { label: "Instagram ↗", href: "https://www.instagram.com/hihi.meme.jp/" },
+    { label: "TikTok ↗", href: "https://www.tiktok.com/@hihi.meme.jp" },
+    { label: "YouTube ↗", href: "https://youtube.com/@danceteam-hime" },
+  ],
+  videoId: "iZmdtR8Co74",
+} as const;
 
-export type NewsItem = { date: string; title: string; body: string; href: string | null };
+export const CHARITY = {
+  tag: "Project — Charity",
+  heading: ["Dance de", "Charity"],
+  ja: "ダンスでチャリティ",
+  body: "ダンスを通じて社会に何かを返したいという思いから、チャリティ企画を主催しています。",
+} as const;
 
-// 日付は公式の告知に書かれているものだけ入れる
-export const NEWS: NewsItem[] = [
-  {
-    date: "2026-09-14",
-    title: "平成たち祭 vol.2 を新宿 Motion で開催",
-    body: "OPEN 17:30 / START 18:00。Hi,Me:) も出演。終演後にハタチたち5の説明会 (入場無料) を予定。",
-    href: "https://www.instagram.com/hatachi_tachi/",
-  },
-  {
-    date: "2026-09-19",
-    title: "Hi,Me:) Summer Dance Workshop",
-    body: "14:15〜15:45、studio worcle (池尻大橋)。参加費 2,500円。",
-    href: "https://www.instagram.com/hihi.meme.jp/",
-  },
-  {
-    date: "2026-08-01",
-    title: "「ハタチたち5」ダンサー募集中 (9月30日まで)",
-    body: "2027年に成人式を迎える代が対象。ダンス歴は問いません。詳細と応募は公式サイトへ。",
-    href: "https://hatachitachi.com",
-  },
-];
+export const GALLERY = [
+  { name: "hood-front", widths: [600, 1200], width: 1200, height: 1600, alt: "青い布のフードをかぶったMetalina" },
+  { name: "phone-booth", widths: [600, 1179], width: 1179, height: 1179, alt: "公衆電話の前でサングラスをずらすMetalina" },
+  { name: "party-hat", widths: [600, 1067], width: 1067, height: 1600, alt: "青いパーティーハットを持つMetalina" },
+  { name: "hero-hood-wide", widths: [800, 1600], width: 1600, height: 1067, alt: "青い布を顔のまわりに巻いたMetalinaのポートレート" },
+  { name: "white-glitter", widths: [600, 1067], width: 1067, height: 1600, alt: "白い衣装のMetalina" },
+] as const satisfies readonly Photo[];
 
-// Instagram 埋め込み (公式 blockquote)。差し替えは URL を入れ替えるだけ
-export const INSTAGRAM_POST_URLS: string[] = [
-  "https://www.instagram.com/p/Dcs61I-E3Ar/",
-  "https://www.instagram.com/reel/DcgN5EXTG3j/",
+// 経歴。year が無い行は年を出さない (振付は作品名だけ)。star は強調表示
+export type CareerItem = { year?: string; text: string; star?: boolean };
+export type CareerCard = { en: string; ja: string; wide?: boolean; items: readonly CareerItem[] };
+
+export const CAREER: readonly CareerCard[] = [
+  {
+    en: "Performance",
+    ja: "テレビ・CM・MV・ライブ出演",
+    items: [
+      { year: "2023", text: "JFLオープニングセレモニー 野田愛実ライブ メインダンサー" },
+      { year: "2022", text: "NHK紅白歌合戦 YOASOBI「群青」", star: true },
+      { year: "2022", text: "横浜中華街映画祭「Odore.」春節MV" },
+      { year: "2021", text: "GANMI「SHUJINKO STYLE」" },
+      { year: "2020", text: "Gulliver TVCM" },
+      { year: "2018", text: "ポカリスエット TVCM" },
+    ],
+  },
+  {
+    en: "Choreography",
+    ja: "振付",
+    items: [
+      { text: "FEEQUE「キミメモリー」「オツカレーション」「猫ジェラシー」「信じてしまったアタシが馬鹿でした」" },
+      { text: "CRASH「このハカナイ世界で」" },
+      { text: "まかろんぱぁてぃ「ニーハオ×ニーハオ」" },
+      { text: "ビビッとときたかも！「アイスミラクル！！」" },
+      { text: "振付アシスタント：AKB48「元カレです」、Zillion「TIMELESS」「やめとこっか」「One Day」" },
+    ],
+  },
+  {
+    en: "Produce",
+    ja: "主催・プロデュース",
+    items: [
+      { year: "2025", text: "「ハタチたち4」プロデュース" },
+      { year: "2024", text: "「ハタチたち3」プロデュース／「SALAD BOWL」主催" },
+      { year: "2023", text: "「ハタチたち2」プロデュース" },
+      { year: "2022", text: "「ハタチたち」総合監督／ライブ「とりあえず生で」共同主催" },
+    ],
+  },
+  {
+    en: "Teaching",
+    ja: "インストラクター・講師",
+    wide: true,
+    items: [
+      { year: "2025–", text: "株式会社D PRESENTS、CDA Ladyダンススタジオ インストラクター" },
+      { year: "2024–", text: "少人数グループ向け出張クラスを展開" },
+      { year: "2023–", text: "こども文化センター・児童館のダンスクラブ講師" },
+      { year: "2020–", text: "アートクリエーションスタジオ HIPHOPインストラクター（小学校高学年〜高校生）" },
+    ],
+  },
+  {
+    en: "Talks & Awards",
+    ja: "講演・コンテスト",
+    items: [
+      { year: "20–25", text: "神奈川県主催 産業人材育成フォーラム 講演（3回）" },
+      { year: "2020", text: "GKKJ×HDI MOERO PROJECT ファイナリスト" },
+    ],
+  },
 ];
 
 export const CONTACT = {
-  heading: "お仕事のご相談",
-  body: "振付・出演・ワークショップ・イベント企画・映像制作のご相談は、Instagram のダイレクトメッセージからお願いします。学校・自治体・企業の方もお気軽にどうぞ。",
-  primaryHref: SITE.instagram,
-  primaryLabel: "Instagram で連絡する",
+  lead: ["お仕事のご依頼・", "ご相談"],
+  body: "振付やレッスン、出演、イベントのことなど、お仕事のご依頼やご相談はこちらからお気軽にどうぞ。内容を確認して、折り返しご連絡します。",
+  sns: [
+    { label: "Instagram", href: SITE.instagram },
+    { label: "X", href: SITE.x },
+    { label: "TikTok", href: SITE.tiktok },
+    { label: "YouTube", href: SITE.youtube },
+  ],
+  // 送信は Web3Forms (https://web3forms.com)。access key は公開してよい値で、届け先のメールは Web3Forms 側で決まる。
+  // 届け先を変えるときは Web3Forms で新しいキーを作ってここを差し替える
+  form: {
+    endpoint: "https://api.web3forms.com/submit",
+    accessKey: "66e04f23-a49c-41b7-b516-6cbf13a4c5bf",
+    subject: "【Studio Metali】HPからお問い合わせが届きました",
+    fromName: "Studio Metali HP",
+    types: ["振付制作", "レッスン指導・WS", "ダンサー出演", "映像ディレクション・イベント企画", "その他"],
+  },
 } as const;
