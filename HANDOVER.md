@@ -24,6 +24,11 @@ Artifact からの移し方:
 - DNS: Cloudflare (ドメインの登録はお名前.com のまま)。手順と経緯は `docs/domain-setup.md`
 - 旧ホスティングの Vercel プロジェクト `studiometali` は使っていない。後片付けは `docs/domain-setup.md` の 8
 
+## 検索対策
+
+title・description・構造化データ (ProfilePage / Person / Organization / WebSite)・画像サイトマップを入れてある。
+Search Console の登録など、コードの外でやることと、今後の専用ページの案は `docs/seo.md`。
+
 ## 確認待ち (2026-10-16 時点)
 
 - 本名「鈴木 理那」をヒーローと説明文・構造化データに出している (Artifact のまま)。旧サイトは本名を出さない方針だったので Metalina の了承を確認する。出さないなら `site.ts` の `PROFILE.realName` と `SITE.description` を直す

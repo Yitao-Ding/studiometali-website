@@ -2,14 +2,17 @@
 // 出典が無い数字・日付は入れない。推測で埋めた値はここに置かない。
 // 2026-10-16 に、YD が完成させたデザイン (claude.ai の Artifact「Studio Metali」) の文言へ全面的に差し替えた。
 
+// title と description は検索結果に出る文。屋号 (スタジオメタリ) と名前 (Metalina / めたりな) で検索した人に
+// 本人のサイトだと分かるよう、両方を前半に入れている。Google は title を全角 30 字前後、description を 80〜120 字で切る
 export const SITE = {
   name: "スタジオメタリ",
   nameRoman: "Studio Metali",
-  title: "Studio Metali | ダンサー・振付師 Metalina 公式サイト",
+  title: "スタジオメタリ｜ダンサー・振付師 Metalina（めたりな）公式サイト",
   description:
-    "神奈川を拠点に活動するダンサー・振付師・プロデューサー Metalina (鈴木理那) の公式サイト。振付制作、レッスン指導・WS、ダンサー出演、映像ディレクション・イベント企画のご依頼を受け付けています。",
+    "神奈川を拠点に活動するダンサー・振付師 Metalina（めたりな／鈴木理那）の公式サイト。NHK紅白歌合戦 YOASOBI「群青」ダンサー出演、アイドルの振付制作、キッズから大人までのHIPHOPレッスン・出張WS、ダンス映像「ハタチたち」のプロデュース。お仕事のご依頼はフォームから。",
   domain: "studiometali.com",
   instagram: "https://www.instagram.com/metalina_831/",
+  xHandle: "@metalina_831",
   x: "https://x.com/metalina_831",
   tiktok: "https://www.tiktok.com/@metalina_831",
   youtube: "https://youtube.com/@studio_metali",
@@ -18,7 +21,12 @@ export const SITE = {
 
 export const PROFILE = {
   name: "Metalina",
+  nameKana: "めたりな",
   realName: "鈴木 理那",
+  // 構造化データ (json-ld.tsx) に使う。ページ本文に書いてある事実だけ
+  region: "神奈川県",
+  jobTitles: ["ダンサー", "振付師", "プロデューサー"],
+  knowsAbout: ["ダンス", "振付", "HIPHOP", "ダンスレッスン", "ダンス映像", "イベント企画"],
   roles: "Dancer / Choreographer / Producer",
   lead: ["ダンスで、", "人と人をつなぐ。"],
   body: "神奈川県を拠点に、ダンサー・振付師・イベントプロデューサーとして活動しています。これまでにNHK紅白歌合戦でのダンサー出演やアイドルグループの振付を担当してきました。二十歳100人でダンス映像をつくる「ハタチたち」のプロデュースや、チャリティイベントの主催もしています。",
