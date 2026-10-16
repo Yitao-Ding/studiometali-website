@@ -1,5 +1,6 @@
 import { CONTACT } from "@/content/site";
 import { ContactForm } from "./contact-form";
+import { Jp } from "@/components/ui/jp";
 
 export function Contact() {
   return (
@@ -15,7 +16,9 @@ export function Contact() {
               </span>
             ))}
           </p>
-          <p className="copy">{CONTACT.body}</p>
+          <p className="copy">
+            <Jp>{CONTACT.body}</Jp>
+          </p>
           <ul className="sns">
             {CONTACT.sns.map((s) => (
               <li key={s.label}>

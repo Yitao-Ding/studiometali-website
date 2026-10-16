@@ -1,4 +1,5 @@
 import { SERVICE } from "@/content/site";
+import { Jp } from "@/components/ui/jp";
 
 export function Service() {
   return (
@@ -21,8 +22,12 @@ export function Service() {
           {SERVICE.items.map((s) => (
             <article className="svc" key={s.en}>
               <span className="en">{s.en}</span>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
+              <h3>
+                <Jp>{s.title}</Jp>
+              </h3>
+              <p>
+                <Jp>{s.body}</Jp>
+              </p>
               <ul>
                 {s.tags.map((t) => (
                   <li key={t}>{t}</li>

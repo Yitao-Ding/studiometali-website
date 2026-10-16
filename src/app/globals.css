@@ -34,6 +34,8 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .tag::before{content:"";width:28px;height:2px;background:currentColor}
 .big{font-family:var(--wide);font-stretch:125%;font-weight:900;line-height:.95;letter-spacing:-.01em;font-size:clamp(42px,7.2vw,104px)}
 .nb{display:inline-block}
+/* 日本語は文節の切れ目 (src/components/ui/jp.tsx が入れる <wbr>) でだけ折り返す。入りきらない長い語だけは途中で切る */
+.jp{word-break:keep-all;overflow-wrap:anywhere}
 .h-ja{font-family:var(--ja);font-weight:900;font-size:clamp(26px,3.6vw,40px);line-height:1.35;margin-top:18px}
 .copy{max-width:34em;margin-top:22px}
 .right{margin-left:auto;text-align:right}
@@ -162,9 +164,11 @@ h1,h2,h3{margin:0;text-wrap:balance}
 
 /* gallery strip */
 .gallery{background:var(--white);padding-block:48px 0}
-.strip{columns:5 180px;column-gap:12px;margin-top:40px;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px));padding-bottom:12px}
-.strip img{width:100%;height:auto;margin-bottom:12px;break-inside:avoid}
-@media (max-width:760px){.strip{columns:2}}
+/* PC は 5 枚を 1 段に、スマホは 2 列で 2:2:1 (site.ts の GALLERY の並び・spOrder・sp で決まる)。
+   以前の columns (段組み) だと、列の高さが揃わずスマホの右下に空きが出ていた */
+.strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:start;margin-top:40px;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px));padding-bottom:24px}
+.strip img{display:block;width:100%;height:auto}
+@media (max-width:760px){.strip{grid-template-columns:repeat(2,minmax(0,1fr))}.strip img{order:var(--sp-order)}.strip img.square{aspect-ratio:1/1;object-fit:cover}.strip img.wide{grid-column:1/-1}}
 
 /* CV */
 .cv{background:var(--white)}
