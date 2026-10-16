@@ -1,54 +1,51 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Klee_One, Noto_Sans_JP } from "next/font/google";
+import { Archivo, DM_Mono, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/content/site";
 import { SITE_URL } from "@/lib/site-url";
 
+// 英字の大見出し。font-stretch: 125% (Expanded) を使うので幅の軸 (wdth) も読み込む
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  axes: ["wdth"],
+  display: "swap",
+});
+
 // 日本語フォントは preload しない (unicode-range で 100 以上に分割されており、
 // preload すると head に <link rel=preload> が 100 本以上並ぶ)。
-const notoJp = Noto_Sans_JP({
-  variable: "--font-noto-jp",
-  weight: ["400", "500", "700"],
+const zenKaku = Zen_Kaku_Gothic_New({
+  variable: "--font-zen-kaku",
+  weight: ["500", "700", "900"],
   subsets: ["latin"],
   display: "swap",
   preload: false,
 });
 
-// 手書き寄りの見出し用。サムネイル制作でも使っている書体 (Klee)
-const klee = Klee_One({
-  variable: "--font-klee",
-  weight: ["400", "600"],
-  subsets: ["latin"],
-  display: "swap",
-  preload: false,
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  weight: ["400", "600"],
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  weight: ["400", "500"],
   subsets: ["latin"],
   display: "swap",
 });
-
-const TITLE = `${SITE.name} | ${SITE.tagline}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: TITLE, template: `%s | ${SITE.name}` },
+  title: { default: SITE.title, template: `%s | ${SITE.nameRoman}` },
   description: SITE.description,
-  keywords: ["スタジオメタリ", "Studio Metali", "Metalina", "めたりな", "ハタチたち", "Hi,Me:)", "ダンスでチャリティ", "ダンス", "振付"],
+  keywords: ["スタジオメタリ", "Studio Metali", "Metalina", "めたりな", "鈴木理那", "振付", "振付師", "ダンサー", "ダンスレッスン", "ハタチたち", "Hi,Me:)"],
   openGraph: {
-    title: TITLE,
+    title: SITE.title,
     description: SITE.description,
     type: "website",
-    siteName: SITE.name,
+    siteName: SITE.nameRoman,
     locale: "ja_JP",
     url: "/",
-    images: [{ url: "/assets/ogp.jpg", width: 1200, height: 630, alt: SITE.name }],
+    images: [{ url: "/assets/ogp.jpg", width: 1200, height: 630, alt: SITE.nameRoman }],
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
+    title: SITE.title,
     description: SITE.description,
     images: ["/assets/ogp.jpg"],
   },
@@ -59,15 +56,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#6fb5d7",
+  themeColor: "#0B1530",
   colorScheme: "light",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ja" className={`${notoJp.variable} ${klee.variable} ${cormorant.variable}`}>
+    <html lang="ja" className={`${archivo.variable} ${zenKaku.variable} ${dmMono.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -1,14 +1,10 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site-url";
 
-// 独自ドメインが未設定の間 (= *.vercel.app のまま) はクロールさせない。
-// 本番ドメインが付いた時点で自動的に許可へ切り替わる。
-const isTemporaryHost = SITE_URL.includes("vercel.app") || SITE_URL.includes("localhost");
+// 静的書き出し (output: "export") では force-static が無いとビルドが止まる
+export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
-  if (isTemporaryHost) {
-    return { rules: { userAgent: "*", disallow: "/" } };
-  }
   return {
     rules: { userAgent: "*", allow: "/" },
     sitemap: `${SITE_URL}/sitemap.xml`,
