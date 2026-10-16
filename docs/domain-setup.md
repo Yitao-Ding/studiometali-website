@@ -25,7 +25,7 @@ dig +short www.studiometali.com
 
 ## 3. お名前.com でネームサーバーを変える
 
-1. お名前.com Navi にログイン (お名前ID は save.yitao@gmail.com のアカウント。hatachitachi.com と同じ)
+1. お名前.com Navi にログイン (Metalina のアカウント。hatachitachi.com と同じ)
 2. 「ネームサーバー/DNS」→「ネームサーバー変更」→ `studiometali.com` だけを選ぶ。hatachitachi.com は触らない (Vercel で動いている)
 3. 「その他のネームサーバーを使う」を選び、2 で控えた2本を入れる → 確認 → 設定
 4. 途中で出る購入の誘い (ドメインプロテクション、別ドメインの無料登録、画面右下の「未申請のドメインがあります」) は全部断る
