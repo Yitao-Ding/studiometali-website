@@ -1,5 +1,6 @@
 import { PHOTOS, PROFILE } from "@/content/site";
 import { Photo } from "@/components/ui/photo";
+import { Jp } from "@/components/ui/jp";
 
 export function About() {
   return (
@@ -16,7 +17,7 @@ export function About() {
               </span>
             ))}
           </p>
-          <p className="copy">{PROFILE.body}</p>
+          <p className="copy"><Jp>{PROFILE.body}</Jp></p>
         </div>
       </div>
     </section>

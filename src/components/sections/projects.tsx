@@ -1,5 +1,6 @@
 import { CHARITY, HATACHI, HIME, PHOTOS, SITE } from "@/content/site";
 import { Photo } from "@/components/ui/photo";
+import { Jp } from "@/components/ui/jp";
 
 function Links({ links }: { links: readonly { label: string; href: string }[] }) {
   return (
@@ -41,7 +42,9 @@ export function Projects() {
               {HATACHI.heading[1]}
             </h2>
             <p className="h-ja">{HATACHI.ja}</p>
-            <p className="copy">{HATACHI.body}</p>
+            <p className="copy">
+              <Jp>{HATACHI.body}</Jp>
+            </p>
             <Facts facts={HATACHI.facts} />
             <a className="btn big-cta" href={SITE.hatachitachi} target="_blank" rel="noopener">
               <span className="lbl">OFFICIAL SITE</span>
@@ -69,7 +72,9 @@ export function Projects() {
               </div>
               <Photo className="himer-icon" photo={PHOTOS.himerLogo} sizes="160px" />
             </div>
-            <p className="copy">{HIME.body}</p>
+            <p className="copy">
+              <Jp>{HIME.body}</Jp>
+            </p>
             <Facts facts={HIME.facts} />
             <Links links={HIME.links} />
             {/* 埋め込みプレーヤー (iframe) だと本番で再生できなかった (2026-10-16 YD「埋め込みが壊れている」)。
@@ -113,7 +118,9 @@ export function Projects() {
               {CHARITY.heading[1]}
             </h2>
             <p className="h-ja">{CHARITY.ja}</p>
-            <p className="copy">{CHARITY.body}</p>
+            <p className="copy">
+              <Jp>{CHARITY.body}</Jp>
+            </p>
           </div>
           <Photo photo={PHOTOS.charity} sizes="(max-width: 760px) 100vw, 680px" />
         </div>

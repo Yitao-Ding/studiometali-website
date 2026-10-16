@@ -22,11 +22,12 @@ const DEFS = [
   ["hatachi-sky.jpg", "hatachi-sky", [1200], 78],
   ["himer-logo.jpg", "himer-logo", [400], 82],
   ["charity.jpg", "charity", [800, 1600], 78],
-  ["hood-front.jpg", "hood-front", [600, 1200], 80],
   ["phone-booth.jpg", "phone-booth", [600, 1179], 80],
   ["party-hat.jpg", "party-hat", [600, 1067], 80],
   ["hero-hood-wide.jpg", "hero-hood-wide", [800, 1600], 80],
-  ["white-glitter.jpg", "white-glitter", [600, 1067], 80],
+  // 2026-10-16 追加 (ギャラリーの笑顔の 2 枚)。最初は LINE で届いた写真 (2000px / 1045px) から書き出した
+  ["hood-smile.jpg", "hood-smile", [600, 1200], 80],
+  ["birthday-24.jpg", "birthday-24", [600, 1045], 80],
 ];
 
 async function build([from, name, widths, quality]) {

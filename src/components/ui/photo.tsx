@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Photo as PhotoDef } from "@/content/site";
 
 type Props = {
@@ -8,17 +9,19 @@ type Props = {
   // ファーストビューの写真だけ true (LCP)
   eager?: boolean;
   decorative?: boolean;
+  style?: CSSProperties;
 };
 
 // 事前に WebP 化した複数幅 (/assets/<name>-<幅>.webp) を srcset で出す。
 // 画像は next.config の images.unoptimized で Vercel の最適化を使わない方針なので、next/image ではなく <img> にしている
-export function Photo({ photo, sizes, className, eager = false, decorative = false }: Props) {
+export function Photo({ photo, sizes, className, eager = false, decorative = false, style }: Props) {
   const src = (w: number) => `/assets/${photo.name}-${w}.webp`;
   const largest = photo.widths[photo.widths.length - 1];
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className}
+      style={style}
       src={src(largest)}
       srcSet={photo.widths.map((w) => `${src(w)} ${w}w`).join(", ")}
       sizes={sizes}

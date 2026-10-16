@@ -124,13 +124,19 @@ export const CHARITY = {
   body: "ダンスを通じて社会に何かを返したいという思いから、チャリティ企画を主催しています。",
 } as const;
 
+// 写真ギャラリー。配列の順が PC の並び (5 枚を 1 段、縦と横が交互になるように)。
+// スマホは 2 列で 2:2:1 に組む: spOrder の順に、縦 2 枚 → 正方形 2 枚 → 横 1 枚を全幅。
+// sp: "square" はスマホで正方形に切る (横写真の左右を落とす)、"wide" はスマホで 2 列ぶち抜き
+// 2026-10-16 Metalina・YD: 真顔の 2 枚 (hood-front / white-glitter) を外し、笑顔の 2 枚 (hood-smile / birthday-24) を入れた
+export type GalleryPhoto = Photo & { spOrder: number; sp?: "square" | "wide" };
+
 export const GALLERY = [
-  { name: "hood-front", widths: [600, 1200], width: 1200, height: 1600, alt: "青い布のフードをかぶったMetalina" },
-  { name: "phone-booth", widths: [600, 1179], width: 1179, height: 1179, alt: "公衆電話の前でサングラスをずらすMetalina" },
-  { name: "party-hat", widths: [600, 1067], width: 1067, height: 1600, alt: "青いパーティーハットを持つMetalina" },
-  { name: "hero-hood-wide", widths: [800, 1600], width: 1600, height: 1067, alt: "青い布を顔のまわりに巻いたMetalinaのポートレート" },
-  { name: "white-glitter", widths: [600, 1067], width: 1067, height: 1600, alt: "白い衣装のMetalina" },
-] as const satisfies readonly Photo[];
+  { name: "party-hat", widths: [600, 1067], width: 1067, height: 1600, alt: "青いパーティーハットを持つMetalina", spOrder: 1 },
+  { name: "hood-smile", widths: [600, 1200], width: 1200, height: 800, alt: "青い布のフードをかぶって笑うMetalina", spOrder: 4, sp: "square" },
+  { name: "phone-booth", widths: [600, 1179], width: 1179, height: 1179, alt: "公衆電話の前でサングラスをずらすMetalina", spOrder: 3 },
+  { name: "birthday-24", widths: [600, 1045], width: 1045, height: 1567, alt: "銀色の「24」の風船の前で頬杖をつくMetalina", spOrder: 2 },
+  { name: "hero-hood-wide", widths: [800, 1600], width: 1600, height: 1067, alt: "青い布を顔のまわりに巻いたMetalinaのポートレート", spOrder: 5, sp: "wide" },
+] as const satisfies readonly GalleryPhoto[];
 
 // 経歴。year が無い行は年を出さない (振付は作品名だけ)。star は強調表示
 export type CareerItem = { year?: string; text: string; star?: boolean };

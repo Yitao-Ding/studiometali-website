@@ -1,4 +1,5 @@
 import { CAREER } from "@/content/site";
+import { Jp } from "@/components/ui/jp";
 
 export function Career() {
   return (
@@ -14,13 +15,17 @@ export function Career() {
             <div className={card.wide ? "cv-card wide" : "cv-card"} key={card.en}>
               <h3>
                 {card.en}
-                <small>{card.ja}</small>
+                <small>
+                  <Jp>{card.ja}</Jp>
+                </small>
               </h3>
               <ul>
                 {card.items.map((item) => (
                   <li className={item.year ? undefined : "noy"} key={item.text}>
                     {item.year && <span className="y">{item.year}</span>}
-                    <span className={item.star ? "star" : undefined}>{item.text}</span>
+                    <span className={item.star ? "star" : undefined}>
+                      <Jp>{item.text}</Jp>
+                    </span>
                   </li>
                 ))}
               </ul>
