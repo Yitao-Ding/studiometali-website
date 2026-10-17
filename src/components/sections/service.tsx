@@ -26,7 +26,7 @@ export function Service() {
                 <Jp>{s.title}</Jp>
               </h3>
               <p>
-                <Jp unit={17}>{s.body}</Jp>
+                <Jp unit={19}>{s.body}</Jp>
               </p>
               <ul>
                 {s.tags.map((t) => (

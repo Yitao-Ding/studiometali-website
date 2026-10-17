@@ -43,7 +43,7 @@ const keepQuoted = (text: string) => text.replace(/「[^」]*」/g, (q) => q.rep
 // unit は 360px のスマホで 1 行に入る字数 (全角換算) にする。超えると塊の中で折り返して、かえって行が増える
 const widthOf = (s: string) => [...s].reduce((w, ch) => w + (/[\x20-\x7e\u00a0]/.test(ch) ? 0.5 : 1), 0);
 
-export function Jp({ children, unit = 21 }: { children: string; unit?: number }) {
+export function Jp({ children, unit = 19 }: { children: string; unit?: number }) {
   const text = keepQuoted(children);
   const points = breakPoints(text);
   const clauses: { from: number; to: number }[] = [];

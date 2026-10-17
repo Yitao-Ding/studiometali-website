@@ -209,6 +209,19 @@ footer{background:var(--black);color:#9AA3BA;padding-block:28px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em}
 /* DM Mono には和文が無いので、屋号の日本語だけ本文の書体に */
 footer .ja{font-family:var(--ja);font-weight:700;letter-spacing:.12em;margin-left:.8em}
+/* スマホは余白を広めに (2026-10-17 YD「ギチギチな印象、縮めるというか余白をもうちょい」)。
+   左右 20px → 32px、章の上下 56px → 80px、本文は 15px → 14px にして字間と行間を少し開ける。
+   ヒーローは文字の大きさを左右 20px 前提で計算しているので対象外 */
+@media (max-width:760px){
+  .chap:not(.hero) .wrap,.gallery .wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}
+  .strip{padding-inline:max(32px,env(safe-area-inset-left,0px)) max(32px,env(safe-area-inset-right,0px))}
+  .chap:not(.hero){padding-block:80px}
+  .copy{margin-top:30px;font-size:14px;letter-spacing:.03em;line-height:2}
+  .svc p,.cv-card li{letter-spacing:.03em}
+  .facts{margin-top:30px}
+}
+/* 1 列のときは左右の余白を章の 32px に任せる (カードの 22px と重なると本文の幅が狭くなりすぎる) */
+@media (max-width:520px){.svc{padding:32px 0 36px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* 404 / エラー画面 */
