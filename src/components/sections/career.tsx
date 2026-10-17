@@ -24,7 +24,7 @@ export function Career() {
                   <li className={item.year ? undefined : "noy"} key={item.text}>
                     {item.year && <span className="y">{item.year}</span>}
                     <span className={item.star ? "star" : undefined}>
-                      <Jp>{item.text}</Jp>
+                      <Jp unit={13}>{item.text}</Jp>
                     </span>
                   </li>
                 ))}

@@ -36,6 +36,8 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .nb{display:inline-block}
 /* 日本語は文節の切れ目 (src/components/ui/jp.tsx が入れる <wbr>) でだけ折り返す。入りきらない長い語だけは途中で切る */
 .jp{word-break:keep-all;overflow-wrap:anywhere}
+/* 最後の行が「しています。」だけのように短くならないよう、段落全体で折り返し位置を選ぶ (対応ブラウザだけ) */
+.copy,.svc p,.cv-card li{text-wrap:pretty}
 .h-ja{font-family:var(--ja);font-weight:900;font-size:clamp(26px,3.6vw,40px);line-height:1.35;margin-top:18px}
 .copy{max-width:34em;margin-top:22px}
 .right{margin-left:auto;text-align:right}
