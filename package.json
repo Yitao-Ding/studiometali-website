@@ -10,19 +10,19 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "budoux": "^0.9.3",
-    "next": "16.3.4",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "budoux": "^0.10.0",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.4",
-    "sharp": "^0.35.4",
+    "eslint-config-next": "16.4.3",
+    "sharp": "^0.35.5",
     "typescript": "^5",
-    "wrangler": "^4.149.0"
+    "wrangler": "^4.152.0"
   }
 }
