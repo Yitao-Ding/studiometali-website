@@ -23,7 +23,7 @@
 1. Google Search Console に「ドメイン」プロパティで studiometali.com を登録。DNS が Cloudflare なので、所有権の確認は Search Console の画面から Cloudflare を選ぶと TXT レコードを自動で入れられる (出なければ表示された TXT を Cloudflare の DNS に手で入れる)
 2. Search Console → サイトマップ → `https://studiometali.com/sitemap.xml` を送信
 3. Search Console → URL 検査 → `https://studiometali.com/` →「インデックス登録をリクエスト」
-4. Bing Webmaster Tools に Search Console から取り込み (Bing は ChatGPT の検索や Copilot の元データにもなる)
+4. Bing Webmaster Tools に Search Console から取り込み (Bing は ChatGPT の検索や Copilot の元データにもなる)。2026-11-02 時点で未登録。代わりに IndexNow を入れた: `public/<キー>.txt` と `scripts/indexnow.mjs`。内容を変えて公開したら `node scripts/indexnow.mjs` で Bing などに知らせる
 5. Cloudflare → studiometali.com → Caching → Configuration → Crawler Hints を ON (内容が変わった時に Bing などへ自動で知らせる)
 6. Cloudflare の AI クローラーの設定 (AI Crawl Control / Block AI bots、管理された robots.txt) を確認する。Google と Bing の検索には影響しないが、ChatGPT や Perplexity の検索に出したいなら、検索用のクローラーは止めない
 7. 本人の SNS のプロフィールのリンクを https://studiometali.com にする: Instagram @metalina_831、X、TikTok、YouTube チャンネル (スタジオメタリ) の「リンク」、Hi,Me:) の各アカウント
